@@ -12,9 +12,9 @@
       <div class="card-body">
         <h5 class="card-title">{{product.name}}</h5>
         <p class="card-text">
-        {{product.description}}
+        ${{product.price}}
         </p>
-        <a href="#" class="btn btn-dark">View</a>
+        <a href="{% url 'detail-page' product.slug product.pk %}" class="btn btn-dark">View</a>
       </div>
       <div class="card-footer">
         <small class="text-muted">{{product.date}}</small>

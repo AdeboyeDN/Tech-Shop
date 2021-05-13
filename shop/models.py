@@ -23,12 +23,29 @@ class product(models.Model):
      date = models.DateTimeField(auto_now_add=True)
      slug = models.SlugField(max_length=200, null=True, blank=True)
 
+
      class Meta:
         ordering = ['-date']
+
+     def get_absolute_url(self):
+        return reverse("detail-page", kwargs={"slug": self.slug, "pk": self.pk})
+    
 
 
      def __str__(self):
         return self.name
 
      
+class OrderItem(models.Model):
+    product = models.ForeignKey(product, on_delete=models.SET_NULL, null=True)
+    name = models.CharField(max_length=200, null=True, blank=True)
+    qty = models.IntegerField(null=True, blank=True, default=0)
+    price = models.DecimalField(
+        max_digits=7, decimal_places=2, null=True, blank=True)
+    image = models.CharField(max_length=200, null=True, blank=True)
+    _id = models.AutoField(primary_key=True, editable=False)
+
+    def __str__(self):
+        return str(self.name)
+
 

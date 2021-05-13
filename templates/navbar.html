@@ -19,10 +19,7 @@
                 <li class="nav-item">
                    <a href="{% url 'profile-page' %}" class="nav-link active">Hello {{request.user}}!</a>
                 </li>
-
-
                 <li>
-
                 <form method="post" action="{% url 'account_logout' %}">
                 {% csrf_token %}
                   <button type="submit"><span><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
