@@ -17,7 +17,7 @@
     {% if user.is_authenticated %}  
          <ul class="nav navbar-nav navbar-right">
                 <li class="nav-item">
-                   <a href="{% url 'profile-page' %}" class="nav-link active">Hello {{request.user}}!</a>
+                   <a href="{% url 'profile-page' %}" class="nav-link active">Hi {{request.user}}!</a>
                 </li>
                 <li>
                 <form method="post" action="{% url 'account_logout' %}">
